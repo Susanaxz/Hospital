@@ -26,7 +26,7 @@ class PacienteController extends Controller
 
         // comprobar si la validacion ha fallado
         if ($validator->fails()) {
-            dd($validator);
+            // dd($validator);
             // redirigir al formulario de alta de paciente y mostrar los errores de validacion 
             return redirect('alta')
                 ->withErrors($validator)
@@ -35,13 +35,15 @@ class PacienteController extends Controller
             // la validacion no ha fallado
             // insertar el paciente en la base de datos utilizando el metodo del modelo Paciente
             try {
-                $datos['paciente'] = Paciente::alta($paciente)([
+                $datos['paciente'] = Paciente::alta([
                     'nif' => $paciente['nif'],
                     'nombre' => $paciente['nombre'],
                     'apellidos' => $paciente['apellidos'],
                     'fechaingreso' => $paciente['fechaingreso'],
                     'fechaalta' => null
                 ]);
+
+                
                 // redirigir a la vista de alta de paciente y mostrar mensaje de confirmacion
                 $datos['mensaje'] = 'Paciente dado de alta correctamente';
                 return view('alta', $datos);
