@@ -15,9 +15,11 @@
         <nav class="navbar bg-body-secondary">
             <h3>Menu opciones:</h3>
             <br>
-            <a class="navbar-brand" href="/consulta">Consulta pacientes</a>
-            <a class="navbar-brand" href="/alta">Alta paciente</a>
-            <a class="navbar-brand" href="/mantenimiento">Baja/modificación paciente</a>
+            <a class="navbar-brand" href="{{ url('consulta') }}">Consulta pacientes</a>
+            <a class="navbar-brand" href="{{ url('alta') }}">Alta paciente</a>
+            <a class="navbar-brand" href=" {{ url('mantenimiento') }} ">Baja/modificación paciente</a>
+
+
         </nav>
 
         <section id='contenido'>
