@@ -33,9 +33,9 @@ class PacienteController extends Controller
                 ->withInput();
         } else {
             // la validacion no ha fallado
-            // insertar el paciente en la base de datos
+            // insertar el paciente en la base de datos utilizando el metodo del modelo Paciente
             try {
-                $datos['paciente'] = Paciente::create([
+                $datos['paciente'] = Paciente::alta($paciente)([
                     'nif' => $paciente['nif'],
                     'nombre' => $paciente['nombre'],
                     'apellidos' => $paciente['apellidos'],
