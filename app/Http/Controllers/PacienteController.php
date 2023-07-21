@@ -126,7 +126,23 @@ class PacienteController extends Controller
 
         
 
-    public function bajaPaciente()
+    public function bajaPaciente(Paciente $paciente)
     {
+        try {
+            if (!$paciente->idpaciente) {
+                throw new Exception('Se debe seleccionar un paciente en consulta');
+            }
+        } catch (Exception $e) {
+            $datos['mensajes'] = $e->getMessage();
+        }
+
+        try {
+            $paciente->delete();
+            $datos['mensaje'] = 'Paciente dado de baja correctamente';
+        } catch (QueryException $e) {
+            $datos['mensaje'] = $e->getMessage();
+        }
+
+        return view('mantenimiento', $datos);
     }
 }
