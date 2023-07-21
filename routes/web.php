@@ -28,17 +28,17 @@ Route::get('/mantenimiento', [VistasController::class, 'mantenimiento']);
 
 //operativas de alta, consulta, modificación y baja de pacientes
 
-// Ruta asociada a la consulta de todos los pacientes
-Route::get('/paciente', [PacienteController::class, 'consultapacientes']);
-
 // Ruta asociada a la consulta de un paciente seleccionado en la vista qeu carga mantenimiento.blade.php
-Route::get('/paciente/{idpaciente}', [PacienteController::class, 'consultapaciente']);
+Route::get('/paciente/{idpaciente}', [PacienteController::class, 'consultaPaciente']);
+
+// Ruta asociada a la consulta de todos los pacientes
+Route::get('/paciente', [PacienteController::class, 'consultaPacientes']);
 
 //Ruta asociada a la operativa de alta de paciente en la vista alta.blade.php
-Route::post('/paciente', [PacienteController::class, 'altapaciente']);
+Route::post('/paciente', [PacienteController::class, 'altaPaciente']);
 
 //Ruta asociada a la operativa de modificación de paciente en la vista mantenimiento.blade.php
-Route::put('/paciente/{paciente?}', [PacienteController::class, 'modificacionpaciente']);
+Route::put('/paciente/{paciente?}', [PacienteController::class, 'modificacionPaciente']);
 
 //Ruta asociada a la operativa de baja de paciente en la vista mantenimiento.blade.php
-Route::delete('/paciente/{paciente?}', [PacienteController::class, 'bajapaciente']);
+Route::delete('/paciente/{paciente?}', [PacienteController::class, 'bajaPaciente']);

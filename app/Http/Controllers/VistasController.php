@@ -20,7 +20,7 @@ class VistasController extends Controller
 
     public function consulta()
     {
-        return redirect()->action([PacienteController::class, 'consultaPaciente']);
+        return redirect()->action([PacienteController::class, 'consultaPacientes']);
     }
 
     public function mantenimiento()

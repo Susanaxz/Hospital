@@ -40,4 +40,16 @@ class Paciente extends Model
         }
     }
 
+    public function consultaPacientes()
+    {
+        $datos['pacientes'] = Paciente::all();
+        return view('consulta', $datos);
+    }
+
+    public function consultaPaciente($idpaciente)
+    {
+        $datos['paciente'] = Paciente::find($idpaciente);
+        return view('consulta', $datos);
+    }
+
 }

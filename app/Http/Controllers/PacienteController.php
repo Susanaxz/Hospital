@@ -59,8 +59,11 @@ class PacienteController extends Controller
         
     }
 
-    public function consultaPaciente()
+    public function consultaPacientes()
     {
+        $pacientes = Paciente::all();
+        return view('consulta', ['pacientes' => $pacientes]);
+
     }
 
     public function modificacionPaciente()
