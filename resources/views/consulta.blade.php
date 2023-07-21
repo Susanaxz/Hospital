@@ -21,7 +21,14 @@
         <td>{{ $paciente->nif }}</td>
         <td>{{ $paciente->nombre }}</td>
         <td>{{ $paciente->apellidos }}</td>
-        <td></td>
+        <td>
+            <form action="/paciente/{{ $paciente->idpaciente }}" method='GET'>
+                <input type='submit' value='Detalle paciente'>
+            </form>
+
+        </td>
+
+
     </tr>
     @endforeach
 

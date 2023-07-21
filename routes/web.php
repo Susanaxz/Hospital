@@ -28,7 +28,7 @@ Route::get('/mantenimiento', [VistasController::class, 'mantenimiento']);
 
 //operativas de alta, consulta, modificación y baja de pacientes
 
-// Ruta asociada a la consulta de un paciente seleccionado en la vista qeu carga mantenimiento.blade.php
+// Ruta asociada a la consulta de un paciente seleccionado en la vista que carga mantenimiento.blade.php
 Route::get('/paciente/{idpaciente}', [PacienteController::class, 'consultaPaciente']);
 
 // Ruta asociada a la consulta de todos los pacientes
