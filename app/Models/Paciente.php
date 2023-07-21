@@ -40,16 +40,12 @@ class Paciente extends Model
         }
     }
 
-    public function consultaPacientes()
+    public static function consulta($filtro)
     {
-        $datos['pacientes'] = Paciente::all();
-        return view('consulta', $datos);
-    }
-
-    public function consultaPaciente($idpaciente)
-    {
-        $datos['paciente'] = Paciente::find($idpaciente);
-        return view('consulta', $datos);
+        $pacientes = Paciente::where('nombre', 'like', '%' . $filtro . '%')
+            ->orWhere('apellidos', 'like', '%' . $filtro . '%')
+            ->get();
+        return $pacientes;
     }
 
 }

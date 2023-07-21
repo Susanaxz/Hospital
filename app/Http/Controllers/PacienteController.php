@@ -63,9 +63,11 @@ class PacienteController extends Controller
 
     public function consultaPacientes()
     {
-        $pacientes = Paciente::all();
-        return view('consulta', ['pacientes' => $pacientes]);
-
+        // $pacientes = Paciente::all();
+        // return view('consulta', ['pacientes' => $pacientes]);
+        $datos = request()->all();
+        $datos['pacientes'] = Paciente::consulta($datos['filtro'] ?? null);
+        return view('consulta', $datos);
     }
 
     public function consultaPaciente($idpaciente = null)

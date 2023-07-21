@@ -5,7 +5,7 @@
 <form action="/paciente" method="get">
     <div class="mb-3">
         <label class="form-label">Buscar por apellido:</label>
-        <input type="search" class="form-control" id="filtro" name="filtro">
+        <input type="search" class="form-control" id="filtro" name="filtro" value="{{ $filtro ?? null}}" onkeyup="this.form.submit()">
     </div>
 </form>
 <br>
