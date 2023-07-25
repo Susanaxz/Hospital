@@ -2,9 +2,11 @@
 @section('contenido')
 <h2>Mantenimiento paciente</h2>
 <br>
-<form id='formulario' method='post' action="/paciente/{{ $paciente->idpaciente ?? null}}">
+<form id='formulario' method='post' action="{{ route('modificacionPaciente',['paciente'=>old('idpaciente') ?? $paciente->idpaciente ?? null]) }}">
     @csrf
     @method('PUT')
+
+
 
 
     <div class="mb-3">

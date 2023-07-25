@@ -2,7 +2,7 @@
 @section('contenido')
 <h2>Consulta de pacientes</h2>
 <br>
-<form action="/paciente" method="get">
+<form action={{ route('consultaPacientes') }} method="get">
     <div class="mb-3">
         <label class="form-label">Buscar por apellido:</label>
         <input type="search" class="form-control" id="filtro" name="filtro" value="{{ $filtro ?? null}}" onkeyup="this.form.submit()">
@@ -22,7 +22,8 @@
         <td>{{ $paciente->nombre }}</td>
         <td>{{ $paciente->apellidos }}</td>
         <td>
-            <form action="/paciente/{{ $paciente->idpaciente }}" method='GET'>
+            <form action="{{ route('consultaPaciente',['idpaciente'=>$paciente['idpaciente']]) }}" method='GET'>
+
                 <input type='submit' value='Detalle paciente'>
             </form>
 
@@ -34,12 +35,12 @@
 
 </table>
 
-    @empty ($paciente)
-    <h4>No hay datos</h4>
-    @else
-    <table id='pacientes' class="table table-striped">
-    </table>
-    @endempty
+@empty ($paciente)
+<h4>No hay datos</h4>
+@else
+<table id='pacientes' class="table table-striped">
+</table>
+@endempty
 
 </table>
 
