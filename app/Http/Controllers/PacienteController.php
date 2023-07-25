@@ -147,4 +147,9 @@ class PacienteController extends Controller
 
         return view('mantenimiento', $datos);
     }
+    // contructor para que no se pueda acceder a las vistas excepto consultaPacientes y consultaPaciente sin estar logueado
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['consultaPacientes', 'consultaPaciente']]);
+    }
 }
