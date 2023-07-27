@@ -11,9 +11,15 @@ class VistasController extends Controller
 
     public function login()
     {
-        return 'pagina de login';
-        // return view('auth.login');
+        // return 'pagina de login';
+        return view('auth.login');
     }
+
+    public function registro()
+    {
+        // return 'pagina de registro';
+        return view('auth.registro');
+    }   
 
     public function home()
     {

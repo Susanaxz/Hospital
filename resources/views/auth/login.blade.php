@@ -5,7 +5,7 @@
         @csrf
         <div class="mb-3">
             <label class="form-label">NIF:</label>
-            <input type="text" class="form-control" id="nif"  name="nif">
+            <input type="text" class="form-control" id="nif"  name="nif" value="{{ old('nif') ?? ''}}">
         </div>
         @error('nif')
         <div class="alert alert-danger" role="alert">

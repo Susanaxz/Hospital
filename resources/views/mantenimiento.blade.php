@@ -35,9 +35,13 @@
 
     </div>
     <br>
+    @auth
+        
+    
     <button type="button" name="modificacion" class="btn btn-primary" onclick="enviarFormulario('PUT')">Modificar paciente</button>
     <button type="button" name="baja" class="btn btn-danger" onclick="enviarFormulario('DELETE')">Baja paciente</button>
 
+    @endauth
 
 
     <br>

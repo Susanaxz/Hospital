@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VistasController;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\Auth\UsuariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,22 @@ use App\Http\Controllers\PacienteController;
 */
 // Ruta del login
 Route::get('/login', [VistasController::class, 'login'])->name('login');
+
+// Ruta del login post
+Route::post('/login', [UsuariosController::class, 'login'])->name('login');
+
+// Ruta logout
+Route::get('/logout', [VistasController::class, 'logout'])->name('logout');
+
+// Ruta de login post
+Route::post('logout', [UsuariosController::class, 'logout'])->name('logout');
+
+
+// Ruta de registro
+Route::get('/registro', [VistasController::class, 'registro'])->name('registro');
+
+// ruta de registro post
+Route::post('registro', [UsuariosController::class, 'alta'])->name('altaRegistro');
 
 //Ruta raíz de entrada a la aplicación
 Route::get('/', [VistasController::class, 'home'])->name('home');

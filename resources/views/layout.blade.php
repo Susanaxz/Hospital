@@ -11,6 +11,7 @@
         <header>
             <h1 id="title">HOSPITAL</h1>
         </header>
+        
         <div class='flex'>
             <nav class="navbar bg-body-secondary">
                 <h3>Menu opciones:</h3>
@@ -23,8 +24,34 @@
                 <a class="navbar-brand" href=" {{ route('mantenimiento') }} ">Baja/modificación paciente</a>
                 @endauth
 
+                {{-- <a class="navbar-brand" href="{{ route('registro') }}">Registro usuarios</a> --}}
+                <hr />
+
+                @auth
+                <h4>Bienvenido/a, {{ Auth::user()->nombre }} {{ Auth::user()->apellidos }} </h4>
+                <hr />
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="navbar-brand" onclick="this.closest('form').submit()" href='#'>Logout</a>
+                </form>
+
+                @endauth
+
+                @guest
+                <a href="{{ route('login') }}">Login</a>  |
+                <a href="{{ route('registro') }}">Registro Personas</a>
+                @endguest
+
+                   
+
+
+
+
 
             </nav>
+
+
+
 
             <section id='contenido'>
                 <div>

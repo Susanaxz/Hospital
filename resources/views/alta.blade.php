@@ -1,7 +1,7 @@
 @extends('layout')
 	@section('contenido')
 	<h2>Alta paciente</h2>
-	<form id='formulario' method='POST' action='/paciente'>
+	<form id='formulario' method='POST' action="'/paciente'">
         @csrf
         <div class="mb-3">
             <label class="form-label" >NIF:</label>
