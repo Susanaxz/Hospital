@@ -54,6 +54,9 @@
 @endempty
 
 </table>
+{{-- {{ $pacientes->onEachSide(2)->links() }} --}}
+{{ $pacientes->onEachSide(2)->links() }}
+
 
 @endsection
 

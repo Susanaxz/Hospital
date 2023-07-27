@@ -25,7 +25,8 @@ class Paciente extends Model
         'fechaalta'
     ];
 
-    public static function alta($datos) {
+    public static function alta($datos)
+    {
         try {
             $paciente = Paciente::create([
                 'nif' => $datos['nif'],
@@ -40,12 +41,14 @@ class Paciente extends Model
         }
     }
 
-    public static function consulta($filtro)
+    public static function consulta($mostrar, $filtro)
     {
-        $pacientes = Paciente::where('nombre', 'like', '%' . $filtro . '%')
-            ->orWhere('apellidos', 'like', '%' . $filtro . '%')
-            ->get();
+        $pacientes = Paciente::where('apellidos', 'like', "%$filtro%")
+            ->orderBy('nombre', 'ASC')
+            ->orderBy('apellidos', 'ASC')
+            ->paginate($mostrar)
+            ->appends(['filtro' => $filtro, 'mostrar' => $mostrar])
+            ->withQueryString();
         return $pacientes;
     }
-
 }
