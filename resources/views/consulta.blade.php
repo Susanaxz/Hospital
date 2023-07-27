@@ -4,8 +4,19 @@
 <br>
 <form action={{ route('consultaPacientes') }} method="get">
     <div class="mb-3">
-        <label class="form-label">Buscar por apellido:</label>
-        <input type="search" class="form-control" id="filtro" name="filtro" value="{{ $filtro ?? null}}" onkeyup="this.form.submit()">
+        <label class="form-label">Pacientes a mostrar:</label>
+        <select class="form-select" name="mostrar" onchange="this.form.submit()">
+            <option value="5" <?php if (($mostrar ?? null) == 5) echo 'selected';?>>5</option>
+            <option value="10" <?php if (($mostrar ?? null) == 10) echo 'selected';?>>10</option>
+            <option value="20" <?php if (($mostrar ?? null) == 20) echo 'selected';?>>20</option>
+            <option value="50" <?php if (($mostrar ?? null) == 50) echo 'selected';?>>50</option>
+        </select>
+        <br>
+        <div>
+            <label class="form-label">Buscar por apellido:</label>
+            <input type="search" class="form-control" id="filtro" name="filtro" value="{{ $filtro ?? null}}" onkeyup="this.form.submit()">
+
+        </div>
     </div>
 </form>
 <br>
